@@ -1,4 +1,4 @@
-# todolist-terminal
+# todo-terminal
 
 Aplicação web full-stack de lista de tarefas com uma interface inspirada em
 terminal, construída com HTML, CSS, JavaScript e Node.js. Não possui dependências
