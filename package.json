@@ -1,0 +1,18 @@
+{
+  "name": "todo-terminal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "To-Do List com interface de terminal, Node.js sem dependencias externas (AppSec por design).",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test test/*.test.js",
+    "check": "node --check server.js && node -e \"for (const f of require('fs').readdirSync('src')) require('child_process').execFileSync(process.execPath,['--check','src/'+f])\""
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

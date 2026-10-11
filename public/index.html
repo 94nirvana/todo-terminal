@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="dark">
+  <title>todo.sh — terminal To-Do</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="crt" aria-hidden="true"></div>
+
+  <!-- Tela de autenticacao (o "login" do terminal) -->
+  <section id="auth-screen" class="auth-screen" hidden>
+    <form id="auth-form" class="auth-card" autocomplete="off" novalidate>
+      <h1 class="auth-title"><span class="prompt">root@todo</span>:<span class="path">~</span>$ login</h1>
+      <p id="auth-message" class="auth-message" role="alert" aria-live="polite"></p>
+      <label class="field">
+        <span class="field-label">e-mail</span>
+        <input id="auth-email" name="email" type="email" maxlength="254" required
+               autocomplete="username" spellcheck="false">
+      </label>
+      <label class="field">
+        <span class="field-label">senha</span>
+        <input id="auth-password" name="password" type="password" maxlength="200" required
+               autocomplete="current-password">
+      </label>
+      <div class="auth-actions">
+        <button id="auth-submit" class="btn" type="submit">entrar</button>
+        <button id="auth-register" class="btn btn-ghost" type="button">criar conta</button>
+      </div>
+      <p class="auth-hint">Senha minima de <span id="min-password-length">12</span> caracteres.</p>
+    </form>
+  </section>
+
+  <!-- Terminal principal -->
+  <main id="terminal" class="terminal" hidden>
+    <header class="terminal-bar">
+      <span class="dot dot-red"></span>
+      <span class="dot dot-yellow"></span>
+      <span class="dot dot-green"></span>
+      <span class="terminal-title">todo.sh — <span id="terminal-user">guest</span></span>
+    </header>
+
+    <div id="screen" class="screen" role="log" aria-live="polite" aria-label="Saida do terminal"></div>
+
+    <form id="prompt-form" class="prompt-line" autocomplete="off">
+      <label class="sr-only" for="command">Comando</label>
+      <span class="prompt"><span id="prompt-user">user</span>@todo</span>:<span class="path">~</span>$&nbsp;
+      <input id="command" name="command" type="text" maxlength="500" spellcheck="false"
+             autocomplete="off" autocapitalize="off" autocorrect="off">
+      <span class="cursor" aria-hidden="true"></span>
+    </form>
+
+    <aside class="hint-bar">
+      digite <code>help</code> para ver os comandos · <code>tab</code> completa · <code>↑/↓</code> histórico
+    </aside>
+  </main>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
